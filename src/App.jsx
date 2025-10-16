@@ -3,6 +3,11 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 import Login from "./pages/Login";
 import TwoFA from "./pages/TwoFA";
 import Profile from "./pages/Profile";
+import Register from "./pages/Register";
+import Setup2FA from "./pages/Setup2FA";
+import Home from "./pages/Home";
+
+
 
 export default function App() {
   return (

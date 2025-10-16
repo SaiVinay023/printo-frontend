@@ -19,7 +19,9 @@ export default function Login() {
             } else if (res.data["2fa_required"]) {
             localStorage.setItem("user_id", res.data.user_id);
             navigate("/2fa");
-            }
+            } else {
+            navigate("/setup-2fa");
+          }
             } catch (err) {
             setError("Invalid credentials");
             }

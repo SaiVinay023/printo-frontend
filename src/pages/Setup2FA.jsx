@@ -7,7 +7,7 @@ export default function Setup2FA() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        async funtion getQr()   {
+        async function getQr()   {
             try{
                 const res = await api.post("/setup-2fa");
                 setQrSvg(window.atob(res.data.qr.split(",")[1]));
