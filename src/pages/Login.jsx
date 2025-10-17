@@ -12,6 +12,7 @@ export default function Login() {
         e.preventDefault(); // Prevent form from refreshing the page
         setError(""); // Clear previous error message
         localStorage.removeItem("user_id");
+        localStorage.removeItem("access_token");
         try {   
             const res = await api.post("/login", { email, password });
             if (res.data.access_token) {
