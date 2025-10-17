@@ -21,7 +21,7 @@ export default function TwoFA() {
         setError(""); // Clear previous error message
         try {
             const res = await api.post("/verify-2fa", { user_id, code });
-            localStorage.removeItem("user_id");
+            
             localStorage.setItem("access_token", res.data.access_token);
             navigate("/profile");
 

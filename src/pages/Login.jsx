@@ -17,8 +17,7 @@ export default function Login() {
             if (res.data.access_token) {
             localStorage.setItem("access_token", res.data.access_token);
             navigate("/profile");
-            } else if (res.data["2fa_required"]) {
-            localStorage.removeItem("user_id");  
+            } else if (res.data["2fa_required"]) { 
             localStorage.setItem("user_id", res.data.user_id);
             navigate("/2fa");
             } else {
