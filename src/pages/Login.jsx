@@ -11,7 +11,7 @@ export default function Login() {
       async function handleSubmit(e) {
         e.preventDefault(); // Prevent form from refreshing the page
         setError(""); // Clear previous error message
-        localStorage.removeItem("user_id");
+        //localStorage.removeItem("user_id");
         localStorage.removeItem("access_token");
         try {   
             const res = await api.post("/login", { email, password });
@@ -21,7 +21,12 @@ export default function Login() {
             } else if (res.data["2fa_required"]) { 
             localStorage.setItem("user_id", res.data.user_id);
             navigate("/2fa");
-            } else {
+            }
+            else if (res.data["setup_2fa_required"]) { 
+          localStorage.setItem("user_id", res.data.user_id);
+          navigate("/setup-2fa");
+          }
+           else {
             navigate("/setup-2fa");
           }
             } catch (err) {

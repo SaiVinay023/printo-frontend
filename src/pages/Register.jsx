@@ -22,6 +22,7 @@ export default function Register() {
     try {
       await api.post("/register", form);
       setSuccess("Registration successful! Please login.");
+      
     } catch (err) {
       setError("Registration failed. Check your info.");
     }
