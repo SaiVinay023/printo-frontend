@@ -11,12 +11,14 @@ export default function Login() {
       async function handleSubmit(e) {
         e.preventDefault(); // Prevent form from refreshing the page
         setError(""); // Clear previous error message
+        localStorage.removeItem("user_id");
         try {   
             const res = await api.post("/login", { email, password });
             if (res.data.access_token) {
             localStorage.setItem("access_token", res.data.access_token);
             navigate("/profile");
             } else if (res.data["2fa_required"]) {
+            localStorage.removeItem("user_id");  
             localStorage.setItem("user_id", res.data.user_id);
             navigate("/2fa");
             } else {
