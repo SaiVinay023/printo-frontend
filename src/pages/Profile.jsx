@@ -25,6 +25,18 @@ export default function Profile() {
     <div>
       <h2>Welcome, {user.firstName} {user.lastName}</h2>
       <p>Email: {user.email}</p>
+      {!user.two_factor_secret && (
+        <div className="mt-4">
+          <p className="text-red-500 font-bold mb-2">2FA is not enabled!</p>
+          <button
+            className="btn bg-blue-500 text-white"
+            onClick={() => navigate("/setup-2fa")}
+          >
+            Enable Google Authenticator 2FA
+          </button>
+        </div>
+      )}
+
     </div>
   );
 }
