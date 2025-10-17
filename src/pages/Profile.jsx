@@ -9,19 +9,21 @@ export default function Profile() {
   useEffect(() => {
     async function fetchProfile() {
       try {
-        const res = await api.get("/profile"); // Connects to /api/profile with Bearer token
+        const res = await api.get("/profile"); // /api/profile with Bearer token is set via api.js
         setUser(res.data);
       } catch (error) {
+        localStorage.removeItem("access_token");
+        localStorage.removeItem("user_id");
         navigate("/login");
       }
     }
-
     fetchProfile();
   }, [navigate]);
 
   if (!user) return <div>Loading...</div>;
 
-   const demographicFields = (
+  // Demographic fields render only with 2FA enabled
+  const demographicFields = (
     <div>
       <h2>Welcome, {user.first_name} {user.last_name}</h2>
       <p>Email: {user.email}</p>
@@ -36,14 +38,15 @@ export default function Profile() {
 
   return (
     <div>
-      <h2>Welcome, {user.firstName} {user.lastName}</h2>
-      <p>Email: {user.email}</p>
       {user.two_factor_secret ? (
-        // Show demographic/profile info ONLY after 2FA is set up
+        // Demographic info only if 2FA is enabled
         demographicFields
       ) : (
+        // Prompt to setup 2FA
         <div className="mt-4">
-          <p className="text-red-500 font-bold mb-2">2FA is not enabled!</p>
+          <p className="text-red-500 font-bold mb-2">
+            2FA is not enabled! You must enable two-factor authentication to view your profile data.
+          </p>
           <button
             className="btn bg-blue-500 text-white"
             onClick={() => navigate("/setup-2fa")}
@@ -53,15 +56,15 @@ export default function Profile() {
         </div>
       )}
       <button
-      className="btn bg-red-600 text-white mt-6"
-      onClick={() => {
-      localStorage.removeItem("user_id");  
-      localStorage.removeItem("access_token");
-      navigate("/");
-      }}
-    >
-  Logout
-</button>
+        className="btn bg-red-600 text-white mt-6"
+        onClick={() => {
+          localStorage.removeItem("user_id");
+          localStorage.removeItem("access_token");
+          navigate("/");
+        }}
+      >
+        Logout
+      </button>
     </div>
   );
 }
