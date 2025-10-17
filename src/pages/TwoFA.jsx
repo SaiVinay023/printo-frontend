@@ -8,20 +8,11 @@ export default function TwoFA() {
     const navigate = useNavigate();
     const user_id = localStorage.getItem("user_id");
 
-    if (!user_id) {
-    return (
-      <div className="mx-auto mt-24 text-red-500 font-bold">
-        User ID missing! Please login again.
-      </div>
-    );
-  }
-
     async function handleSubmit(e) {
         e.preventDefault(); // Prevent form from refreshing the page
         setError(""); // Clear previous error message
         try {
             const res = await api.post("/verify-2fa", { user_id, code });
-            localStorage.removeItem("user_id");
             localStorage.setItem("access_token", res.data.access_token);
             navigate("/profile");
 

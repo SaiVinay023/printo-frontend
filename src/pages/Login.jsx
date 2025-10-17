@@ -11,7 +11,7 @@ export default function Login() {
       async function handleSubmit(e) {
         e.preventDefault(); // Prevent form from refreshing the page
         setError(""); // Clear previous error message
-        //localStorage.removeItem("user_id");
+        localStorage.removeItem("user_id");
         localStorage.removeItem("access_token");
         try {   
             const res = await api.post("/login", { email, password });
