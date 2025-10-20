@@ -17,6 +17,11 @@ Separation of concerns, independent development/deployment, clean security bound
 
 ***
 
+## 🚀 Deployment
+
+- **Frontend:** Deploy on Vercel,https://printo-frontend.vercel.app/
+- **Backend:** Deploy on Render, https://printo-backend-62em.onrender.com
+
 ## 🛠️ Tech Stack
 
 | Layer      | Technology                                         |
@@ -215,8 +220,8 @@ npx cypress open
 
 ## 🚀 Deployment
 
-- **Frontend:** Deploy on Vercel, Netlify, or Render. Connect repo, set API URL.
-- **Backend:** Deploy on AWS, Render, DigitalOcean. Ensure Postgres production DB and `.env` are set.
+- **Frontend:** Deploy on Vercel,https://printo-frontend.vercel.app/
+- **Backend:** Deploy on Render, https://printo-backend-62em.onrender.com
 
 ***
 
