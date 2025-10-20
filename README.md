@@ -46,9 +46,7 @@ Profile Page: On success, user sees protected demographic info.
 
 Logout: User can log out, which ends the protected session.
 
-![alt text](07d57f25-0d09-40bf-845c-c9ea2f8cd24e.png)
-![alt text](6b3b4d60-1.png)
-
+![alt text](07d57f25-0d09-40bf-845c-c9ea2f8cd24e.png) ![alt text](6b3b4d60.png)
 
 ## 🏗️ Architecture & Folder Structure
 
