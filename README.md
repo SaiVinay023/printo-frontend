@@ -36,10 +36,20 @@ Separation of concerns, independent development/deployment, clean security bound
 
 ***
 
+IMportant things to follow, 
+
+password should be minimum 8 letters/digits
+
+never click back , follow user flow
+
+For any clarification, give a call to me +393482625113
+
+
+
 🚀 User Flow Overview
 Home: User sees branding and chooses either "Register" or "Login".
 
-Register: User completes a profile form, submits info to backend.
+Register: User completes a profile form, submits info to backend.  
 
 Login: User enters email & password; if 2FA is required, proceeds accordingly.
 
