@@ -9,8 +9,8 @@ export default function TwoFA() {
     const user_id = localStorage.getItem("user_id");
 
     async function handleSubmit(e) {
-        e.preventDefault(); // Prevent form from refreshing the page
-        setError(""); // Clear previous error message
+        e.preventDefault();
+        setError("");
         try {
             const res = await api.post("/verify-2fa", { user_id, code });
             localStorage.setItem("access_token", res.data.access_token);
